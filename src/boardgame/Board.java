@@ -27,4 +27,14 @@ public class Board {
 	public void setColumns(int columns) {
 		this.columns = columns;
 	}
+	
+	//vai retornar a minha matriz na linha row e na columa column
+	public Piece piece(int row, int column) {
+		return pieces [row][column];
+	}
+	
+	//realizado uma sobrecarga, então, ele vai retornar o pieces na position.getrow e position .getcolumn
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getColumn()];
+	}
 }
