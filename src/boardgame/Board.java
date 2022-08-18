@@ -37,4 +37,11 @@ public class Board {
 	public Piece piece(Position position) {
 		return pieces[position.getRow()][position.getColumn()];
 	}
+	
+	//esse método vai ter que ir na matriz de peçs na linha e na coluna 
+	//depois vai ter que atribuir a essa posição da minha matriz de peças a peça que veio como argumento
+	public void placePiece(Piece piece, Position position) {
+		pieces[position.getRow()][position.getColumn()] = piece;
+		piece.position = position;
+	}
 }

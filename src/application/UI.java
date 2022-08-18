@@ -7,7 +7,7 @@ public class UI {
 	
 	public static void printBoard(ChessPiece[][] pieces) {
 		for (int i=0; i<pieces.length; i++) { //pieces.lenght considerando que a matriz vai ser quadrada
-			System.out.print((8 - i) + " "); //irá imprimir o 1,2,3,etc e mais um espaço em branco
+			System.out.print((8 - i) + " "); //irá imprimir o 8,7,6 etc e mais um espaço em branco
 			for (int j=0; j<pieces.length; j++) {
 				printPiece(pieces[i][j]);
 			}
