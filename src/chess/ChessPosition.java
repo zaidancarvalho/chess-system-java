@@ -38,7 +38,7 @@ public class ChessPosition {
 	
 	
 	//é colocado as aspas para forçar o compilador a enteder
-	//que isso é uma concateneção de strings
+	//que isso é uma concatneção de strings
 	@Override
 	public String toString() {
 		return "" + column + row;
