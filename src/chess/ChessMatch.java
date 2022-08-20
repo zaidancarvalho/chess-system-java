@@ -47,6 +47,9 @@ public class ChessMatch {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
+		if (!board.piece(position).isThereAnyPossibleMove()) {
+			throw new ChessException("There is no possible moves for the chosen piece");
+		}
 	}
 	
 	//agora vai ser as coordenadas do sistema do xadrez e não no sistema da matriz

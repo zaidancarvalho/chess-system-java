@@ -19,7 +19,7 @@ public class Program {
 		//lógica para movimentar as peças
 		while (true) {
 			try {
-				UI.clearScreen();
+				UI.clearScreen();//limpando a tela a cada vez que voltar o while
 				UI.printBoard(chessMatch.getPieces());
 				System.out.println();
 				System.out.print("Source: ");
@@ -33,7 +33,7 @@ public class Program {
 			}
 			catch (ChessException e) {
 				System.out.println(e.getMessage());
-				sc.nextLine();
+				sc.nextLine();//faz com que o programa aguarde até apertar enter
 			}
 			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
