@@ -10,11 +10,23 @@ public class ChessMatch {
 	
 	//uma partida de xadrez tem que ter um tabuleiro
 	private Board board;
+	private int turn;
+	private Color currentPlayer;
 	
 	//aqui está sendo aplicado a delegação, minha classe ChessMatch que vai dizer que meu tabuleiro precisa ser 8 por 8
 	public ChessMatch() {
 		board = new Board(8,8);
+		turn = 1;
+		currentPlayer = Color.WHITE;
 		initialSetup();
+	}
+	
+	public int getTurn() {
+		return turn;
+	}
+	
+	public Color getCurrentPlayer() {
+		return currentPlayer;
 	}
 	
 	public ChessPiece[][] getPieces() {
@@ -40,6 +52,7 @@ public class ChessMatch {
 		validateSourcePosition(source);
 		validateTargetPosition(source,target);
 		Piece capturedPiece = makeMove(source, target);
+		nextTurn();
 		return (ChessPiece)capturedPiece;
 	}
 	
@@ -54,7 +67,9 @@ public class ChessMatch {
 	private void validateSourcePosition(Position position) {
 		if (!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
-		}
+		}					//downcasting
+		if (currentPlayer != ((ChessPiece) board.piece(position)).getColor()) // significa que é uma peça do adversário, eu não posso mover
+			throw new ChessException("The chosen piece is not yours");
 		if (!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("There is no possible moves for the chosen piece");
 		}
@@ -64,6 +79,13 @@ public class ChessMatch {
 		if (!board.piece(source).possibleMove(target)) {
 			throw new ChessException("The chosen piece can't move to target position");
 		}
+	}
+	
+	//troca os turnos
+	private void nextTurn() {
+		turn++; //incrementando o turno
+		//se o jogador atual for igual a color.white, então, ele agora vai ser o color.balck, caso contrario, ele vai ser o color.white
+		currentPlayer = (currentPlayer == Color.WHITE ? Color.BLACK : Color.WHITE);
 	}
 	
 	//agora vai ser as coordenadas do sistema do xadrez e não no sistema da matriz
