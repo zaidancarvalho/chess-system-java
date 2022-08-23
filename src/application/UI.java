@@ -53,20 +53,33 @@ public class UI {
 	}
 	
 	public static void printBoard(ChessPiece[][] pieces) {
-		for (int i=0; i<pieces.length; i++) { //pieces.lenght considerando que a matriz vai ser quadrada
+		for (int i=0; i < pieces.length; i++) { //pieces.lenght considerando que a matriz vai ser quadrada
 			System.out.print((8 - i) + " "); //irá imprimir o 8,7,6 etc e mais um espaço em branco
 			for (int j=0; j<pieces.length; j++) {
-				printPiece(pieces[i][j]);
+				printPiece(pieces[i][j], false);
 			}
 			System.out.println(); // quebra de linha 
 		}
 		System.out.println("  a b c d e f g h");
-		
 	}
 	
-	private static void printPiece(ChessPiece piece) {
+	public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
+		for (int i = 0; i < pieces.length; i++) {
+			System.out.print((8 - i) + " ");
+			for (int j=0; j < pieces.length; j++) {
+				printPiece(pieces[i][j], possibleMoves[i][j]);//irá pintar o fundo colorido dependendo dessa variável
+			}
+			System.out.println();
+		}
+		System.out.println(" a b c d e f g h");
+	}
+	
+	private static void printPiece(ChessPiece piece, boolean background) {
+		if (background) { //fazendo um boolean para saber se é v ou f para mudar de cor
+			System.out.print(ANSI_BLUE_BACKGROUND);
+		}
     	if (piece == null) {
-            System.out.print("-");
+            System.out.print("-" + ANSI_RESET);
         }
         else {//utilizando cores para as peças
             if (piece.getColor() == Color.WHITE) {

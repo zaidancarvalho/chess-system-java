@@ -18,7 +18,7 @@ public abstract class Piece {
 	
 	
 	//método concreto que ele está utilizando um método abstrato
-	//hook methods - método que faz um gansho com a subclasse
+	//hook methods - método que faz um gancho com a subclasse
 	public boolean possibleMove(Position position) {
 		return possibleMoves()[position.getRow()][position.getColumn()];
 	}
