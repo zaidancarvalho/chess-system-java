@@ -20,6 +20,10 @@ public abstract class ChessPiece extends Piece{
 		return color;
 	}	
 	
+	public ChessPosition getChessPosition() { 
+		return ChessPosition.fromPosition(position); //chessposition retornando do fromposition
+	}
+	
 	//está sendo realizada aqui porque vai ser reaproveitada em outras peças
 	protected boolean isThereOpponentPiece(Position position) {
 						//realizando um downcasting

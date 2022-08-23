@@ -33,7 +33,7 @@ public class ChessPosition {
 	//precisa me retornar a formula inversa do position
 	protected static ChessPosition fromPosition(Position position) {
 				//necessário realizar um casting para char porque o java não faz automaticamente
-		return new ChessPosition((char)('a' - position.getColumn()), 8 - position.getRow() );
+		return new ChessPosition((char)('a' + position.getColumn()), 8 - position.getRow() );
 	}
 	
 	
