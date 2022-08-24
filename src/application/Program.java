@@ -19,7 +19,7 @@ public class Program {
 		List<ChessPiece> captured = new ArrayList<>();
 		
 		//lógica para movimentar as peças
-		while (true) {
+		while (!chessMatch.getCheck()) {//enquanto a minha partida não estiver com chque mate, vai continuar rodando o meu programa
 			try {
 				UI.clearScreen();//limpando a tela a cada vez que voltar o while
 				UI.printMatch(chessMatch, captured);//lista está como argumento
@@ -49,6 +49,8 @@ public class Program {
 				sc.nextLine();
 			}
 		}
+		UI.clearScreen(); //limpar a tela
+		UI.printMatch(chessMatch, captured);// imprimir novamente a partida para visualizar a finalização da mesma
 	}
 	
 
