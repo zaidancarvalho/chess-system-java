@@ -9,7 +9,7 @@ import boardgame.Position;
 public abstract class ChessPiece extends Piece{
 	
 	private Color color;
-	private int moveCount; // começa com 0, por isso não precisa declarar no construtor
+	private int moveCount; // começa com o valor 0, por isso não precisa declarar no construtor
 
 	public ChessPiece(Board board, Color color) {
 		super(board);
@@ -25,10 +25,12 @@ public abstract class ChessPiece extends Piece{
 		return moveCount;
 	}
 	
+	//incrementando o valor do atributo moveCount
 	public void increaseMoveCount() {
 		moveCount++;
 	}
 	
+	//decrementando o atributo moveCount
 	public void decreaseMoveCount() {
 		moveCount--;
 	}
