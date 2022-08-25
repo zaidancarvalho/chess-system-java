@@ -18,11 +18,10 @@ public class Program {
 		ChessMatch chessMatch = new ChessMatch();
 		List<ChessPiece> captured = new ArrayList<>();
 		
-		//lógica para movimentar as peças
-		while (!chessMatch.getCheck()) {//enquanto a minha partida não estiver com chque mate, vai continuar rodando o meu programa
+		while (!chessMatch.getCheckMate()) {
 			try {
-				UI.clearScreen();//limpando a tela a cada vez que voltar o while
-				UI.printMatch(chessMatch, captured);//lista está como argumento
+				UI.clearScreen();
+				UI.printMatch(chessMatch, captured);
 				System.out.println();
 				System.out.print("Source: ");
 				ChessPosition source = UI.readChessPosition(sc);
@@ -34,24 +33,22 @@ public class Program {
 				System.out.print("Target: ");
 				ChessPosition target = UI.readChessPosition(sc);
 				
-				ChessPiece capturedPiece = chessMatch.perfomChessMove(source, target);
+				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 				
 				if (capturedPiece != null) {
-					captured.add(capturedPiece);//adicionando na lista capituradas
+					captured.add(capturedPiece);
 				}
 			}
 			catch (ChessException e) {
 				System.out.println(e.getMessage());
-				sc.nextLine();//faz com que o programa aguarde até apertar enter
+				sc.nextLine();
 			}
 			catch (InputMismatchException e) {
 				System.out.println(e.getMessage());
 				sc.nextLine();
 			}
 		}
-		UI.clearScreen(); //limpar a tela
-		UI.printMatch(chessMatch, captured);// imprimir novamente a partida para visualizar a finalização da mesma
+		UI.clearScreen();
+		UI.printMatch(chessMatch, captured);
 	}
-	
-
 }

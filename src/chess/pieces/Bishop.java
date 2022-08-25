@@ -42,7 +42,7 @@ public class Bishop extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		// se
+		// southeast
 		p.setValues(position.getRow() + 1, position.getColumn() + 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
@@ -52,7 +52,7 @@ public class Bishop extends ChessPiece{
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		
-		// sw
+		// south-west
 		p.setValues(position.getRow() + 1, position.getColumn() - 1);
 		while (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
